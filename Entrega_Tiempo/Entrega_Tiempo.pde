@@ -1,10 +1,13 @@
 // Nombre: María Camila Serrato
 // Código: 202410329
-//
+// En lugar de mostrar el tiempo con relojes o números, 
+// esta visualización lo representa con bolitas que se 
+// van acumulando. Es una forma diferente de ver cómo 
+// pasa el tiempo, sin presión, solo observando cómo fluye.
 
 void setup() {
   size(600, 700);
-  noStroke();
+  noStroke(); //<>//
 }
 
 void draw() {
@@ -17,7 +20,7 @@ void draw() {
   int h = hour();
   int d = day();
   int mth = month();
-  int año = year() % 100; // año actual dividido 100 = numBolitas de año.
+  int año = year() % 100; // año actual dividido 100 -> residuo = numBolitas de año. (En vez de 2025 bolitas son 25)
 
   float baseX = (width - 160 - 40) / 2;
 
@@ -47,7 +50,7 @@ void draw() {
   line(baseX, 300, baseX + 20, 300);
 
   // D
-  stroke(160, 160, 190, 255);
+  stroke(220, 200, 120, 255);
   line(baseX, 380, baseX, 420);
   line(baseX, 380, baseX + 20, 385);
   line(baseX + 20, 385, baseX + 20, 415);
@@ -68,7 +71,7 @@ void draw() {
 
   noStroke();
 
-  // Bolitas 
+  // Bolitas
   dibujarTiempo(s, baseX + 100, 80, color(120, 180, 220));
   dibujarTiempo(m, baseX + 100, 180, color(130, 170, 130));
   dibujarTiempo(h, baseX + 100, 290, color(160, 160, 190));
@@ -80,15 +83,15 @@ void draw() {
 // Dibuja bolitas acumuladas según cantidad
 
 void dibujarTiempo(int cantidad, float x, float y, color c) {
-  
+
   int cols = 15; // columnas por fila
-  
+
   // cantidad = (se define como el número correspondiente a s, m …)
-  
+
   for (int i = 0; i < cantidad; i++) {
     float bolitaX = x + (i % cols) * 8;
     float bolitaY = y + (i / cols) * 10;
-    
+
     // c reponde al color de cada dibuajrtiempo
     fill(c);
     ellipse(bolitaX, bolitaY, 6, 6);
