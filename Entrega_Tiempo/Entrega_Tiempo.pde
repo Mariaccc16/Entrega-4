@@ -3,7 +3,7 @@
 // En lugar de mostrar el tiempo con relojes o números, 
 // esta visualización lo representa con bolitas que se 
 // van acumulando. Es una forma diferente de ver cómo 
-// pasa el tiempo, sin presión, solo observando cómo fluye.
+// pasa el tiempo, solo observando cómo fluye.
 
 void setup() {
   size(600, 700);
@@ -22,9 +22,9 @@ void draw() {
   int mth = month();
   int año = year() % 100; // año actual dividido 100 -> residuo = numBolitas de año. (En vez de 2025 bolitas son 25)
 
-  float baseX = (width - 160 - 40) / 2;
+  float baseX = (width - 200) / 2;
 
-  strokeWeight(4);
+  strokeWeight(6);
 
   // Letras hechas con líneas simples
 
