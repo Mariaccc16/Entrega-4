@@ -1,9 +1,7 @@
 // Nombre: María Camila Serrato //<>//
 // Código: 202410329
-// En lugar de mostrar el tiempo con relojes o números,
-// esta visualización lo representa con bolitas que se
-// van acumulando. Cada línea representa una unidad de tiempo:
-// segundos, minutos, horas, días, meses y años.
+// En lugar de mostrar el tiempo con relojes o números, esta visualización lo representa con bolitas que se
+// van acumulando. Cada línea representa una unidad de tiempo: segundos, minutos, horas, días, meses y años.
 // Las letras iniciales ayudan a ubicarse (cuales corresponden a cuales)
 
 void setup() {
@@ -14,7 +12,7 @@ void setup() {
 void draw() {
   background(0);
 
-  // Inicializar variables/ Obtener la hora del sistema
+  // Inicializar variables/ Obtener los datos del sistema
 
   int s = second();
   int m = minute();
