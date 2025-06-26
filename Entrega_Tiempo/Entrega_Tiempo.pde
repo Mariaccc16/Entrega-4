@@ -1,19 +1,20 @@
-// Nombre: María Camila Serrato
+// Nombre: María Camila Serrato //<>//
 // Código: 202410329
-// En lugar de mostrar el tiempo con relojes o números, 
-// esta visualización lo representa con bolitas que se 
-// van acumulando. Es una forma diferente de ver cómo 
-// pasa el tiempo, solo observando cómo fluye.
+// En lugar de mostrar el tiempo con relojes o números,
+// esta visualización lo representa con bolitas que se
+// van acumulando. Cada línea representa una unidad de tiempo:
+// segundos, minutos, horas, días, meses y años.
+// Las letras iniciales ayudan a ubicarse (cuales corresponden a cuales)
 
 void setup() {
   size(600, 700);
-  noStroke(); //<>//
+  noStroke();
 }
 
 void draw() {
   background(0);
 
-  // Inicializar variables
+  // Inicializar variables/ Obtener la hora del sistema
 
   int s = second();
   int m = minute();
@@ -21,6 +22,8 @@ void draw() {
   int d = day();
   int mth = month();
   int año = year() % 100; // año actual dividido 100 -> residuo = numBolitas de año. (En vez de 2025 bolitas son 25)
+
+  // Posición horizontal desde donde empiezan las letras
 
   float baseX = (width - 200) / 2;
 
@@ -72,25 +75,30 @@ void draw() {
   noStroke();
 
   // Bolitas
-  dibujarTiempo(s, baseX + 100, 80, color(120, 180, 220));
-  dibujarTiempo(m, baseX + 100, 180, color(130, 170, 130));
-  dibujarTiempo(h, baseX + 100, 290, color(160, 160, 190));
-  dibujarTiempo(d, baseX + 100, 390, color(220, 200, 120));
-  dibujarTiempo(mth, baseX + 100, 500, color(190, 140, 100));
-  dibujarTiempo(año, baseX + 100, 590, color(200));
+  // cantidad en este caso equivale a el valor de las variables (s,m,h,d,mth,año)
+  // dibujarTiempo(cantidad, posX, posY, color);
+
+  dibujarTiempo   (s, baseX + 100, 80, color(120, 180, 220));
+  dibujarTiempo   (m, baseX + 100, 180, color(130, 170, 130));
+  dibujarTiempo   (h, baseX + 100, 290, color(160, 160, 190));
+  dibujarTiempo   (d, baseX + 100, 390, color(220, 200, 120));
+  dibujarTiempo   (mth, baseX + 100, 500, color(190, 140, 100));
+  dibujarTiempo   (año, baseX + 100, 590, color(200));
 }
 
-// Dibuja bolitas acumuladas según cantidad
+// Dibuja las bolitas acumuladas según cantidad
 
 void dibujarTiempo(int cantidad, float x, float y, color c) {
 
   int cols = 15; // columnas por fila
 
-  // cantidad = (se define como el número correspondiente a s, m …)
+  // cantidad = (se define como el número correspondiente de s, m, …)
+
+  // i empieza en 0, y mientras sea menor que la cantidad (s, m, h, etc.), se repite sumando 1 cada vez (i++)
 
   for (int i = 0; i < cantidad; i++) {
-    float bolitaX = x + (i % cols) * 8;
-    float bolitaY = y + (i / cols) * 10;
+    float bolitaX = x + (i % cols) * 8; // "8" separa las bolitas horizontalmente
+    float bolitaY = y + (i / cols) * 10; // "10" separa las bolitas verticalmetne
 
     // c reponde al color de cada dibuajrtiempo
     fill(c);
